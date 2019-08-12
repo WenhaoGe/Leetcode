@@ -1,0 +1,2 @@
+// in order to decide if a string is a palindrome
+// s.charAt(i) == s.charAt(j) && isPalindrome(i+1, j -1) || j - i <= 2
