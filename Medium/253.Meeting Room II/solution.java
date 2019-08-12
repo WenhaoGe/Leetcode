@@ -1,6 +1,6 @@
 //To understand why it works, first let’s define two events:
-Meeting Starts
-Meeting Ends
+//Meeting Starts
+//Meeting Ends
 
 Next, we acknowledge three facts:
 The numbers of the intervals give chronological orders
