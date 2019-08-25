@@ -1,3 +1,8 @@
+/**
+ * At first, find the last digit that is not 9, then increment this digit. Then
+ * set all the values after this digit to be 0. Check to see whether the dummy
+ * code equals 1, if it is
+ */
 class Solution {
     public ListNode plusOne(ListNode head) {
         ListNode dummy = new ListNode(0);
