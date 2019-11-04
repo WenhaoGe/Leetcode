@@ -3,7 +3,6 @@
  * state already in the hashset, which means there is a cycle exist. record how
  * many rounds in each cycle and break the loop.
  * 
- * loop through the
  */
 
 class Solution {
