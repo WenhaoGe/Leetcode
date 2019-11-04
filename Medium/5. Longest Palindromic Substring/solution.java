@@ -10,6 +10,10 @@
  * longest, if it is, then replace the values in maxStart and maxEnd with the
  * new values.
  */
+
+/**
+ * Time complexity: O(n^2) Space complexity: O(1)
+ */
 class Solution {
     public String longestPalindrome(String s) {
         if (s == null || s.length() == 0 || s.length() == 1) {
