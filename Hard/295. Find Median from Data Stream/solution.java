@@ -40,3 +40,35 @@ class MedianFinder {
  * MedianFinder obj = new MedianFinder(); obj.addNum(num); double param_2 =
  * obj.findMedian();
  */
+
+/**
+ * Solution 2
+ */
+
+class MedianFinder {
+
+    /** initialize your data structure here. */
+    List<Integer> list;
+
+    public MedianFinder() {
+        list = new ArrayList<>();
+    }
+
+    public void addNum(int num) {
+        list.add(num);
+    }
+
+    public double findMedian() {
+        Collections.sort(list);
+        int size = list.size();
+        if (size % 2 == 1) {
+            int mid = (size - 1) / 2;
+            return (double) list.get(mid);
+        } else {
+            int mid = (size - 1) / 2;
+            int val1 = list.get(mid);
+            int val2 = list.get(mid + 1);
+            return (double) (val1 + val2) / 2;
+        }
+    }
+}
