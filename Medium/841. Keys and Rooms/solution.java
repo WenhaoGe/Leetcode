@@ -23,3 +23,30 @@ class Solution {
         return true;
     }
 }
+
+/**
+ * Solution 2
+ */
+class Solution {
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+
+        int num = rooms.size();
+        Set<Integer> visited = new HashSet<>();
+        Queue<Integer> q = new LinkedList<>();
+        q.offer(0);
+        while (!q.isEmpty()) {
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                int val = q.poll();
+                visited.add(val);
+                List<Integer> list = rooms.get(val);
+                for (int each : list) {
+                    if (!visited.contains(each)) {
+                        q.offer(each);
+                    }
+                }
+            }
+        }
+        return num == visited.size() ? true : false;
+    }
+}
