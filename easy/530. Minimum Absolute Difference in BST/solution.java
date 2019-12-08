@@ -1,4 +1,8 @@
 
+/**
+ * use in order traversal to get all the values and try to find out the minimum one. 
+ */
+
 class Solution {
     public int getMinimumDifference(TreeNode root) {
         
