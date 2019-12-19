@@ -1,3 +1,6 @@
+// time complexity: O(n) n == the length of s
+// space complexity: O(n)
+
 class Solution {
     public String convert(String s, int numRows) {
         
