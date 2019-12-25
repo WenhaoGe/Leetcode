@@ -50,3 +50,35 @@ class Solution {
         return num == visited.size() ? true : false;
     }
 }
+
+/**
+ * solution 3
+ * TC: O(n)
+ * SC: O(n)  n is the number of rooms
+ */
+class Solution {
+    public boolean canVisitAllRooms(List<List<Integer>> rooms) {
+        
+        int len = rooms.size();
+        boolean[] visited = new boolean[len];
+        dfs(rooms, visited, 0);
+        for (boolean each: visited) {
+            if (!each) {
+                return false;
+            }
+        }
+        return true;
+    }
+    private void dfs(List<List<Integer>> rooms, boolean[] visited, int index) {
+        
+        if (!visited[index]) {
+            visited[index] = true;
+            List<Integer> keys = rooms.get(index);
+            for (int key: keys) {
+                dfs(rooms, visited, key);
+            }
+        }
+        return;
+        
+    }
+}
