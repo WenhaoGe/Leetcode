@@ -43,3 +43,28 @@ class Solution {
         return root;
     }
 }
+
+/**
+ * solution 2
+ */
+
+class Solution {
+    public Node connect(Node root) {
+        
+        if (root == null) {
+            return root;
+        }
+        if (root.left == null && root.right == null) {
+            return root;
+        }
+        if (root.left != null && root.right != null) {
+            root.left.next = root.right;
+        }
+        if (root.next != null) {
+            root.right.next = root.next.left;
+        }
+        connect(root.left);
+        connect(root.right);
+        return root;
+    }
+}
