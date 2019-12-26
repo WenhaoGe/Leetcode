@@ -46,6 +46,8 @@ class Solution {
 
 /**
  * solution 2
+ * TC: O(n)
+ * SC: O(1)
  */
 
 class Solution {
