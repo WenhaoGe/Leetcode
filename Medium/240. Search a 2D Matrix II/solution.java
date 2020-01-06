@@ -64,3 +64,39 @@ class Solution {
         return false;
     }
 }
+
+/**
+ * solution 3
+ * TC: O(m + n)
+ * SC: O(1)
+ */
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        
+        int cols = matrix[0].length;
+        return helper(matrix, target, 0, cols - 1);
+    }
+    private boolean helper(int[][] matrix, int target, int x, int y) {
+        
+        if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length) {
+            return false;
+        }
+        
+        boolean res1 = false, res2 = false;
+        if (matrix[x][y] == target) {
+            return true;
+        }
+        
+        else if (matrix[x][y] > target) {
+            res1 = helper(matrix, target, x, y - 1);
+        } else {
+            res2 = helper(matrix, target, x + 1, y);
+        }
+        return res1 || res2;
+        
+    }
+}
