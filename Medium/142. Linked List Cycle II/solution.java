@@ -38,3 +38,42 @@ public class Solution {
         return fast;
     }
 }
+
+/**
+ * solution 2
+ */
+
+
+public class Solution {
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+        ListNode fast = head.next;
+        ListNode slow = head;
+        boolean circle = true;
+        while (fast != slow) {
+            if (fast == null || fast.next == null) {
+                circle = false;
+                break;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        if (!circle) {
+            return null;
+        }
+        fast = head.next.next;
+        slow = head.next;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        slow = head;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return fast;
+    }
+}
