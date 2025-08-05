@@ -1,14 +1,22 @@
 class Solution:
     def groupStrings(self, strings: List[str]) -> List[List[str]]:
         
-        collection = defaultdict()
-        for string in strings:
-            key = ""
-            for i in range(len(string) - 1):
-                diff = ord(string[i + 1]) - ord(string[i]) + 26
-                key += str(diff % 26)
+        records = dict()
+        answer: List[List[str]] = []
+
+        for _, string in enumerate(strings):
+            key = []
+            for indice in range(1, len(string)):
+                diff = ord(string[indice]) - ord(string[indice - 1]) + 26
+                key.append(str(diff % 26))
             
-            collection[key] = collection.get(key, []) + [string]
+            new_key = ",".join(key)
+            if not new_key in records:
+                records[new_key] = []
+            records[new_key].append(string)
         
-        return list(collection.values())
+        for key, values in records.items():
+            answer.append(values)
         
+        return answer
+            
